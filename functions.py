@@ -1,28 +1,6 @@
 from sympy import symbols, Eq, Matrix, solve, Rational, latex, Symbol
 import numpy as np
 
-def valores_propios(A):
-  A = Matrix(A)
-  L = Symbol("\lambda")
-  n = A.shape[0]
-
-  A2 =L*Matrix.eye(n)-A
-  A2.det()
-
-  Px = A2.det()
-  print("\nPolinomio caracteristico:\n")
-  print(Px)
-
-  print("\nValores propios:\n")
-  sols= solve(Eq(Px,0),L) 
-  print(sols)
-
-  for i in range(len(sols)):
-    A3 = A2.subs(L,sols[i])
-    sol = A3.gauss_jordan_solve(Matrix.zeros(1,n).T)
-    print(f"\nVectores propios:\n")
-    print(sol)
-
 def Eigen2Matrix3x3(valores, vector1, vector2, vector3):
   """
   Args:
@@ -55,9 +33,6 @@ def Eigen2Matrix3x3(valores, vector1, vector2, vector3):
   # Resolver para elementos de la matriz
   B = solve((Eq1, Eq2, Eq3, Eq4, Eq5, Eq6, Eq7, Eq8, Eq9))
   A = Matrix([ [B[a11],B[a12],B[a13]],[B[a21],B[a22],B[a23]],[B[a31],B[a32],B[a33]] ])
-
-  # Comprobacion
-  valores_propios(A)
 
   return A
 
