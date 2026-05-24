@@ -11,14 +11,17 @@ def valores_propios(A):
 
   Px = A2.det()
   print("\nPolinomio caracteristico:\n")
+  print(Px)
 
   print("\nValores propios:\n")
   sols= solve(Eq(Px,0),L) 
+  print(sols)
 
   for i in range(len(sols)):
     A3 = A2.subs(L,sols[i])
     sol = A3.gauss_jordan_solve(Matrix.zeros(1,n).T)
     print(f"\nVectores propios:\n")
+    print(sol)
 
 def Eigen2Matrix3x3(valores, vector1, vector2, vector3):
   """
@@ -60,8 +63,8 @@ def Eigen2Matrix3x3(valores, vector1, vector2, vector3):
 
 # Prueba
 if __name__ == "__main__":
-    vector1 = Matrix([2, -1, 1]).T
-    vector2 = Matrix([1, 0, -1]).T
-    vector3 = Matrix([2, 2, 1]).T
-    valores = Matrix([-1, -2, -3]).T
-    Eigen2Matrix3x3(valores, vector1, vector2, vector3)
+    vector1 = Matrix([1, 0, 0]).T
+    vector2 = Matrix([1, 1, 0]).T
+    vector3 = Matrix([0, 0, 1]).T
+    valores = Matrix([2, 3, 4]).T
+    print(Eigen2Matrix3x3(valores, vector1, vector2, vector3))

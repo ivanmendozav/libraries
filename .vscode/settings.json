@@ -1,0 +1,4 @@
+{
+  "python.defaultInterpreterPath": "/workspaces/libraries/.venv/bin/python",
+  "python.languageServer": "Pylance"
+}
